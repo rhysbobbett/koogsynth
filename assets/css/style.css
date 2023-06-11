@@ -1,0 +1,40 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+}
+
+#synth {
+    text-align: center;
+    width: 500px;
+}
+
+#keyboard {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.white-key {
+    width: 30px;
+    height: 120px;
+    background-color: white;
+    border: 1px solid black;
+    cursor: pointer;
+    margin-right: 0px;
+}
+
+.black-key {
+    width: 20px;
+    height: 80px;
+    right: 10px;
+    background-color: black;
+    position: relative;
+    margin-top: -0px;
+    margin-right: -20px;
+    margin-bottom: 8px;
+    border: 0px solid black;
+    cursor: pointer;
+}

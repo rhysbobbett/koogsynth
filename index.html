@@ -1,15 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Koog Synthesiser</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" type="text/css" href="/assets/css/style.css">
 </head>
 
 <body>
+  <div id="synth">
+    <div>
+      <H1>Koog Synthesiser</H1>
+      <p>Move the octave slider to begin, and then type on your keyboard to start</p>
+    </div>
+    <div id="keyboard">
+      <div class="white-key" data-note="C"></div>
+      <div class="black-key" data-note="C#"></div>
+      <div class="white-key" data-note="D"></div>
+      <div class="black-key" data-note="D#"></div>
+      <div class="white-key" data-note="E"></div>
+      <div class="white-key" data-note="F"></div>
+      <div class="black-key" data-note="F#"></div>
+      <div class="white-key" data-note="G"></div>
+      <div class="black-key" data-note="G#"></div>
+      <div class="white-key" data-note="A"></div>
+      <div class="black-key" data-note="A#"></div>
+      <div class="white-key" data-note="B"></div>
+    </div>
+    <div class="slider-container">
+      <label for="octave-slider">Octave:</label>
+      <input type="range" id="octave-slider" min="0" max="5" step="1">
+    </div>
+    <div class="slider-container">
+      <label for="waveform-select">Waveform:</label>
+      <select id="waveform-select">
+        <option value="sine">Sine</option>
+        <option value="square">Square</option>
+        <option value="sawtooth">Sawtooth</option>
+        <option value="triangle">Triangle</option>
+      </select>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
