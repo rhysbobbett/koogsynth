@@ -1,40 +1,163 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: Arial, sans-serif;
 }
 
+.device-container {
+  border: 2px;
+  border-color: black;
+  height: 100vh;
+  width: 100vw;
+}
+
+/* Tool Tip Overlay */
+
+/* Synth Power Control */
+.power-button {
+  --width: 40px;
+  --height: calc(var(--width) / 2);
+  --border-radius: calc(var(--height) / 2);
+
+  display: inline-block;
+  cursor: pointer;
+}
+
+.toggle__input {
+  display: none;
+}
+
+.toggle__fill {
+  position: relative;
+  width: var(--width);
+  height: var(--height);
+  border-radius: var(--border-radius);
+  background: #dddddd;
+  transition: background 0.2s;
+}
+
+.toggle__fill::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--height);
+  width: var(--height);
+  background: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+  border-radius: var(--border-radius);
+  transition: transform 0.2s;
+}
+
+.toggle__input:checked~.toggle__fill {
+  background: #009578;
+}
+
+.toggle__input:checked~.toggle__fill::after {
+  transform: translateX(var(--height));
+}
+
+/* Octave Controls */
+.octavecontrols {
+  position: relative;
+  padding: 50px;
+  background-color: #e6e6ea;
+}
+
+/* Voltage Control Oscillator */
+.vcfcontrols {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #2ab7ca;
+}
+
+#vcfcutoff {
+  display: contents;
+  padding: 20px;
+}
+
+#vcfpeak {
+  display: contents;
+  padding: 20px;
+}
+
+/* Low frequency oscillator */
+.lfocontrols {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background-color: #fe4a49;
+}
+
+#lforate {
+  display: contents;
+  padding: 20px;
+}
+
+#lfoint {
+  display: contents;
+  padding: 20px;
+}
+
+/* Voltage Oscilator controls */
+.vcocontrols {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+#vcofrequency {
+  display: contents;
+  padding: 20px;
+}
+
+/* Target frequency */
+
+/* Note mode*/
+
+/* Waveform type */
+.wavetype {
+  padding: 10px;
+}
+
+.wavetype label {
+  margin-right: 10px;
+}
+
+/* Keyboard area */
 #synth {
-    text-align: center;
-    width: 500px;
+  text-align: center;
+  width: 500px;
 }
 
 #keyboard {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 75px;
 }
 
 .white-key {
-    width: 30px;
-    height: 120px;
-    background-color: white;
-    border: 1px solid black;
-    cursor: pointer;
-    margin-right: 0px;
+  width: 30px;
+  height: 120px;
+  background-color: white;
+  border: 1px solid black;
+  cursor: pointer;
+  margin-right: 0px;
 }
 
 .black-key {
-    width: 20px;
-    height: 80px;
-    right: 10px;
-    background-color: black;
-    position: relative;
-    margin-top: -0px;
-    margin-right: -20px;
-    margin-bottom: 8px;
-    border: 0px solid black;
-    cursor: pointer;
+  width: 20px;
+  height: 80px;
+  right: 10px;
+  background-color: black;
+  position: relative;
+  margin-top: -0px;
+  margin-right: -20px;
+  margin-bottom: 8px;
+  border: 0px solid black;
+  cursor: pointer;
 }
