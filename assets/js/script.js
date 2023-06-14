@@ -120,4 +120,79 @@ function getNoteFromKey(key) {
 
   return keyboardMap[key];
 }
+
+function playNote(note) {
+  const frequency = getFrequency(note);
+
+  if (toggleButtonVCOVCF.checked) {
+    const vcoVcfWaveform = waveformSelectVCO.value;
+    const vcoVcfCutoff = dials[0].getValue() * 10;
+    const vcoVcfOscillator = createOscillator(vcoVcfWaveform, frequency, vcoVcfCutoff);
+    vcoVcfOscillator.start();
+    oscillators[note] = [vcoVcfOscillator];
+  } else {
+    const vcfWaveform = waveformSelectVCF.value;
+    const vcfCutoff = dials[0].getValue() * 10;
+    const vcfOscillator = createOscillator(vcfWaveform, frequency, vcfCutoff);
+    vcfOscillator.start();
+    const vcoWaveform = waveformSelectVCO.value;
+    const vcoCutoff = dials[1].getValue() * 10;
+    const vcoOscillator = createOscillator(vcoWaveform, frequency, vcoCutoff);
+    vcoOscillator.start();
+  
+    oscillators[note] = [vcoOscillator, vcfOscillator];
+  }
+}
+
+function stopNote(note) {
+  const oscillatorsToStop = oscillators[note];
+  if (oscillatorsToStop) {
+    oscillatorsToStop.forEach(oscillator => {
+      oscillator.stop();
+      oscillator.disconnect();
+    });
+    delete oscillators[note];
+  }
+}
+
+function createOscillator(waveform, frequency, cutoff) {
+  const oscillator = audioContext.createOscillator();
+  const vcf = audioContext.createBiquadFilter();
+
+  oscillator.type = waveform;
+  vcf.type = "lowpass";
+
+  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+  vcf.frequency.setValueAtTime(cutoff, audioContext.currentTime);
+
+  oscillator.connect(vcf).connect(audioContext.destination);
+
+  return oscillator;
+}
+
+function getFrequency(note) {
+  const octaveMultiplier = Math.pow(2, octave);
+  return noteToPitch[note] * octaveMultiplier;
+}
+
+octaveSlider.addEventListener('input', () => {
+  octave = parseInt(octaveSlider.value);
 });
+
+function decreaseOctave() {
+  if (octave > 0) {
+    octave--;
+    octaveSlider.value = octave;
+  }
+}
+
+function increaseOctave() {
+  if (octave < 8) {
+    octave++;
+    octaveSlider.value = octave;
+  }
+}
+
+function knobChanged(id, val) {
+  console.log(`Knob with ID: ${id} changed to ${val}`);
+}
