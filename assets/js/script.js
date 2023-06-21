@@ -195,4 +195,30 @@ function increaseOctave() {
 
 function knobChanged(id, val) {
   console.log(`Knob with ID: ${id} changed to ${val}`);
-}
+// Mouse Listener for keyboard click //
+const keyboard = document.getElementById('keyboard');
+const keys = keyboard.querySelectorAll('.white-key, .black-key');
+const pressedKeys = {};
+
+keys.forEach(key => {
+  key.addEventListener('mousedown', () => {
+    const note = key.dataset.note;
+    playNote(note);
+    pressedKeys[note] = true;
+  });
+
+  key.addEventListener('mouseup', () => {
+    const note = key.dataset.note;
+    stopNote(note);
+    delete pressedKeys[note];
+  });
+
+  key.addEventListener('mouseleave', () => {
+    const note = key.dataset.note;
+    if (pressedKeys[note]) {
+      stopNote(note);
+      delete pressedKeys[note];
+    }
+  });
+});
+
