@@ -3,8 +3,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  width: spa
-  font-family: Arial, sans-serif;
+  width: span;
 }
 
 .device-container {
@@ -19,7 +18,7 @@ body {
 
 
 /* Synth Power Control */
-.power-button {
+.onoff {
   --width: 40px;
   --height: calc(var(--width) / 2);
   --border-radius: calc(var(--height) / 2);
