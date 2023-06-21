@@ -1,7 +1,10 @@
+
 const octaveSlider = document.getElementById('octave-slider');
 const waveformSelectVCO = document.getElementById('waveform-select-vco');
 const waveformSelectVCF = document.getElementById('waveform-select-vcf');
-const toggleButtonVCOVCF = document.getElementById('toggle-button2');
+const toggleButtonVCOVCF = document.getElementById('vcf+vco');
+
+
 
 let dials = [];
 
@@ -49,9 +52,20 @@ dials[3] = new Knob({
   onChange: (val) => knobChanged("lfoint", val),
 });
 
+dials[4] = new Knob({
+  id: "noise",
+  size: "medium",
+  type: "LittlePhatty",
+  lowVal: 0,
+  highVal: 100,
+  value: 50,
+  sensitivity: 0.9,
+  onChange: (val) => knobChanged("noise", val),
+});
 
 let audioContext = new (window.AudioContext || window.webkitAudioContext)();
 let oscillators = [];
+let lfo;
 
 let octave = 4;
 const noteToPitch = {
@@ -70,9 +84,28 @@ const noteToPitch = {
   'F2': 87.31,
 };
 
-// Keyboard event listeners
+
+
+
+// event listeners
 window.addEventListener('keydown', handleKeyDown);
 window.addEventListener('keyup', handleKeyUp);
+
+// Synth power //
+function synthOnOff() {
+  if ( synthOn ) {
+    audioContext.close();
+    synthOn = false;
+    document.getElementById( "onoff" ).value = "Off";
+  }
+  else {
+    if ( createInstrument() ) { // ensure that it succeeded
+      synthOn = true;
+      document.getElementById( "onoff" ).value = "On";
+    }
+  }
+}
+
 
 function handleKeyDown(event) {
   if (event.repeat) return;
@@ -119,6 +152,7 @@ function getNoteFromKey(key) {
   };
 
   return keyboardMap[key];
+  
 }
 
 function playNote(note) {
@@ -128,6 +162,8 @@ function playNote(note) {
     const vcoVcfWaveform = waveformSelectVCO.value;
     const vcoVcfCutoff = dials[0].getValue() * 10;
     const vcoVcfOscillator = createOscillator(vcoVcfWaveform, frequency, vcoVcfCutoff);
+    
+  
     vcoVcfOscillator.start();
     oscillators[note] = [vcoVcfOscillator];
   } else {
@@ -143,6 +179,32 @@ function playNote(note) {
     oscillators[note] = [vcoOscillator, vcfOscillator];
   }
 }
+function createOscillator(waveform, frequency, cutoff) {
+  const oscillator = audioContext.createOscillator();
+  const vcf = audioContext.createBiquadFilter();
+  
+
+
+  oscillator.type = waveform;
+  vcf.type = "oscillator";
+
+  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
+  vcf.frequency.setValueAtTime(cutoff, audioContext.currentTime);
+
+  oscillator.connect(vcf).connect(audioContext.destination);
+
+  if (!lfo) {
+    lfo = audioContext.createOscillator();
+    lfo.type = waveformSelectVCO.value;
+    lfo.frequency.setValueAtTime(dials[2].getValue() * 10, audioContext.currentTime);
+    lfo.start();
+  }
+
+  oscillator.connect(vcf.frequency);
+  lfo.connect(vcf.frequency);
+
+  return oscillator;
+}
 
 function stopNote(note) {
   const oscillatorsToStop = oscillators[note];
@@ -155,20 +217,6 @@ function stopNote(note) {
   }
 }
 
-function createOscillator(waveform, frequency, cutoff) {
-  const oscillator = audioContext.createOscillator();
-  const vcf = audioContext.createBiquadFilter();
-
-  oscillator.type = waveform;
-  vcf.type = "lowpass";
-
-  oscillator.frequency.setValueAtTime(frequency, audioContext.currentTime);
-  vcf.frequency.setValueAtTime(cutoff, audioContext.currentTime);
-
-  oscillator.connect(vcf).connect(audioContext.destination);
-
-  return oscillator;
-}
 
 function getFrequency(note) {
   const octaveMultiplier = Math.pow(2, octave);
@@ -193,8 +241,25 @@ function increaseOctave() {
   }
 }
 
+
 function knobChanged(id, val) {
   console.log(`Knob with ID: ${id} changed to ${val}`);
+
+  if (id === "lforate" && lfo) {
+    lfo.frequency.setValueAtTime(val * 10, audioContext.currentTime);
+  }
+
+  if (id === "lfoint") {
+    const lfoIntensity = val * 10;
+    for (const note in oscillators) {
+      const noteOscillators = oscillators[note];
+      noteOscillators.forEach(oscillator => {
+        oscillator.gain.setValueAtTime(lfoIntensity, audioContext.currentTime);
+      });
+    }
+  }
+}
+
 // Mouse Listener for keyboard click //
 const keyboard = document.getElementById('keyboard');
 const keys = keyboard.querySelectorAll('.white-key, .black-key');
@@ -221,4 +286,5 @@ keys.forEach(key => {
     }
   });
 });
+
 
