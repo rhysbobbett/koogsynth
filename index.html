@@ -21,90 +21,95 @@
       <div class="octavecontrols">
         <div class="slider">
           <span>Octave</span>
-          <input type="range" min="1" max="6" value="2" class="slider" id="octave-slider" list="tickmarks">
+          <input type="range" min="0" max="7" value="3" class="slider" id="octave-slider" list="tickmarks">
           <datalist id="tickmarks">
+            <option value="0">128</option>
             <option value="1">64</option>
             <option value="2">32</option>
             <option value="3">16</option>
             <option value="4">8</option>
             <option value="5">4</option>
             <option value="6">2</option>
+            <option value="7">1</option>
           </datalist>
         </div>
       </div>
-      <div class="vcfcontrols">VCF Controls
-        <div class="vcfcontrols">
+      <div class="dials">
+        <div class="vcfcontrols">VCF Controls
           <div class="knob" id="vcfcutoff"></div>
+          <p>Cut-off</p>
           <div class="knob" id="vcfpeak"></div>
+          <p>Peak</p>
           <div id="knobValue"></div>
         </div>
-      </div>
-      <div class="lfocontrols">LFO Controls
-        <div class="lfocontrols">
+        <div class="lfocontrols">LFO Controls
           <div class="knob" id="lforate"></div>
+          <p>Rate</p>
           <div class="knob" id="lfoint"></div>
+          <p>Intensity</p>
+          <div id="knobValue"></div>
+        </div>
+        <div class="noisecontrols">VCO Noise
+          <div class="knob" id="noise"></div>
+          <p>Noise level</p>
           <div id="knobValue"></div>
         </div>
       </div>
-      <div class="vcocontrols">
-        <p>VCO Controls</p>
-            <div class="knob" id="vcofrequency"></div>
+      <div class="wavetype">
+        <label for="waveform-select-vco">VCO Waveform:</label>
+        <select id="waveform-select-vco">
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+          <option value="square">Square</option>
+        </select>
       </div>
-        <div class="wavetype">
-          <label for="waveform-select-vco">VCO Waveform:</label>
-          <select id="waveform-select-vco">
-            <option value="sawtooth">Sawtooth</option>
-            <option value="triangle">Triangle</option>
-            <option value="square">Square</option>
-          </select>
-        </div>
-        <div class="wavetype">
-          <label for="waveform-select-vcf">VCF Waveform:</label>
-          <select id="waveform-select-vcf">
-            <option value="sawtooth">Sawtooth</option>
-            <option value="triangle">Triangle</option>
-            <option value="square">Square</option>
-          </select>
-        </div>
-        <div class="targetselect">
-          <h4>Target frequency</h4>
-          <div class="tri-state-toggle">
+      <div class="wavetype">
+        <label for="waveform-select-vcf">VCF Waveform:</label>
+        <select id="waveform-select-vcf">
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+          <option value="square">Square</option>
+        </select>
+      </div>
+      <div class="targetselect">
+        <h4>Target frequency</h4>
+        <div class="tri-state-toggle">
 
-            <button class="tri-state-toggle-button" id="waveform-select-vco">
-              VCO
-            </button>
+          <button class="tri-state-toggle-button" id="waveform-select-vco">
+            VCO
+          </button>
 
-            <button class="tri-state-toggle-button" id="toggle-button2">
-              VCO + VCF
-            </button>
+          <button class="tri-state-toggle-button" id="toggle-button2">
+            VCO + VCF
+          </button>
 
-            <button class="tri-state-toggle-button" id="waveform-select-vcf">
-              VCF
-            </button>
+          <button class="tri-state-toggle-button" id="waveform-select-vcf">
+            VCF
+          </button>
 
-          </div>
         </div>
-        <div id="keyboard">
-          <div class="white-key" data-note="F"></div>
-          <div class="black-key" data-note="F#"></div>
-          <div class="white-key" data-note="G"></div>
-          <div class="black-key" data-note="G#"></div>
-          <div class="white-key" data-note="A"></div>
-          <div class="black-key" data-note="A#"></div>
-          <div class="white-key" data-note="B"></div>
-          <div class="white-key" data-note="C"></div>
-          <div class="black-key" data-note="C#"></div>
-          <div class="white-key" data-note="D"></div>
-          <div class="black-key" data-note="D#"></div>
-          <div class="white-key" data-note="E"></div>
-          <div class="white-key" data-note="F2"></div>
-        </div>
+      </div>
+      <div id="keyboard">
+        <div class="white-key" data-note="F"></div>
+        <div class="black-key" data-note="F#"></div>
+        <div class="white-key" data-note="G"></div>
+        <div class="black-key" data-note="G#"></div>
+        <div class="white-key" data-note="A"></div>
+        <div class="black-key" data-note="A#"></div>
+        <div class="white-key" data-note="B"></div>
+        <div class="white-key" data-note="C"></div>
+        <div class="black-key" data-note="C#"></div>
+        <div class="white-key" data-note="D"></div>
+        <div class="black-key" data-note="D#"></div>
+        <div class="white-key" data-note="E"></div>
+        <div class="white-key" data-note="F2"></div>
       </div>
     </div>
+  </div>
 
 
-    <script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
-    <script src="assets/js/script.js"></script>
+  <script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
+  <script src="assets/js/script.js"></script>
 </body>
 
 </html>

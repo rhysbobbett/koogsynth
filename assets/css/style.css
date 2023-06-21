@@ -3,17 +3,20 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: spa
   font-family: Arial, sans-serif;
 }
 
 .device-container {
   border: 2px;
   border-color: black;
-  height: 100vh;
-  width: 100vw;
+  height: 100%;
+  width: 100%;
 }
 
-/* Tool Tip Overlay */
+/* general controls layout */
+
+
 
 /* Synth Power Control */
 .power-button {
@@ -62,8 +65,17 @@ body {
 /* Octave Controls */
 .octavecontrols {
   position: relative;
-  padding: 50px;
+  padding: 25px;
   background-color: #e6e6ea;
+}
+
+/* Dials control area */
+
+.dials {
+  column-count: 3;
+  align-items: center;
+  display: inline-flex; 
+  height:auto;
 }
 
 /* Voltage Control Oscillator */
@@ -76,12 +88,10 @@ body {
 
 #vcfcutoff {
   display: contents;
-  padding: 20px;
 }
 
 #vcfpeak {
   display: contents;
-  padding: 20px;
 }
 
 /* Low frequency oscillator */
@@ -94,24 +104,24 @@ body {
 
 #lforate {
   display: contents;
-  padding: 20px;
 }
 
 #lfoint {
   display: contents;
-  padding: 20px;
 }
 
-/* Voltage Oscilator controls */
-.vcocontrols {
+/* Noise controls */
+.noisecontrols {
   display: flex;
   flex-direction: column;
   padding: 20px;
+  background-color: #fed766;
+  height: 256px;
 }
 
-#vcofrequency {
+#noise {
   display: contents;
-  padding: 20px;
+  background-color: #fed766;
 }
 
 /* Target frequency */
@@ -130,14 +140,14 @@ body {
 /* Keyboard area */
 #synth {
   text-align: center;
-  width: 500px;
+  width: 100%;
+
 }
 
 #keyboard {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
-  padding: 75px;
+  padding: 25px;
 }
 
 .white-key {
@@ -161,3 +171,4 @@ body {
   border: 0px solid black;
   cursor: pointer;
 }
+
