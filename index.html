@@ -13,7 +13,7 @@
   <div class="device-container">
     <div id="synth">
       <h1>Koog Synthesiser</h1>
-      <label class="power-button" for="myToggle">
+      <label class="onoff" for="myToggle">
         <input class="toggle__input" name="" type="checkbox" id="myToggle">
         <div class="toggle__fill"></div>
       </label>
@@ -64,8 +64,8 @@
         </select>
       </div>
       <div class="wavetype">
-        <label for="waveform-select-vcf">VCF Waveform:</label>
-        <select id="waveform-select-vcf">
+        <label for="waveform-select-lfo">LFO Waveform:</label>
+        <select id="waveform-select-lfo">
           <option value="sawtooth">Sawtooth</option>
           <option value="triangle">Triangle</option>
           <option value="square">Square</option>
@@ -79,7 +79,7 @@
             VCO
           </button>
 
-          <button class="tri-state-toggle-button" id="toggle-button2">
+          <button class="tri-state-toggle-button" id="vcf+vco">
             VCO + VCF
           </button>
 
