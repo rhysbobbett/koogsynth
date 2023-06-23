@@ -4,6 +4,7 @@ body {
   align-items: center;
   height: 100vh;
   width: span;
+  background-color: #f4f4f8;
 }
 
 .device-container {
@@ -115,12 +116,14 @@ body {
   flex-direction: column;
   padding: 20px;
   background-color: #fed766;
-  height: 256px;
 }
 
 #noise {
   display: contents;
-  background-color: #fed766;
+}
+
+#VCAGain {
+  display: contents;
 }
 
 /* Target frequency */

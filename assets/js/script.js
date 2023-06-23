@@ -75,9 +75,21 @@ dials[4] = new Knob({
   onChange: (val) => knobChanged("noise", val),
 });
 
-let audioContext = new (window.AudioContext || window.webkitAudioContext)();
-let oscillators = [];
-let lfo;
+dials[5] = new Knob({
+  id: "VCAGain",
+  size: "medium",
+  type: "LittlePhatty",
+  lowVal: 0,
+  highVal: 100,
+  value: 50,
+  sensitivity: 0.9,
+  onChange: (val) => knobChanged("noise", val),
+});
+
+// Knob parameter console log
+function knobChanged(id, val) {
+  console.log(`Knob with ID: ${id} changed to ${val}`);
+}
 
 let octave = 4;
 const noteToPitch = {
