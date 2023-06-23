@@ -1,9 +1,21 @@
 
-const octaveSlider = document.getElementById('octave-slider');
-const waveformSelectVCO = document.getElementById('waveform-select-vco');
-const waveformSelectVCF = document.getElementById('waveform-select-vcf');
-const toggleButtonVCOVCF = document.getElementById('vcf+vco');
+waveformSelectVCO.addEventListener('click', () => {
+  waveformSelectVCO.checked = true;
+  waveformSelectVCF.checked = false;
+  waveformSelectVCOVCF.checked = false;
+});
 
+waveformSelectVCF.addEventListener('click', () => {
+  waveformSelectVCO.checked = false;
+  waveformSelectVCF.checked = true;
+  waveformSelectVCOVCF.checked = false;
+});
+
+waveformSelectVCOVCF.addEventListener('click', () => {
+  waveformSelectVCO.checked = false;
+  waveformSelectVCF.checked = false;
+  waveformSelectVCOVCF.checked = true;
+});
 
 
 let dials = [];
