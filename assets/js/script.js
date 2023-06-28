@@ -112,8 +112,7 @@ function playSound(note) {
     vcaOscillator.start();
     lfoMod.start();
   }
-  const keyElement = document.querySelector(`[data-note="${note}"]`);
-  keyElement.classList.add('active');
+  
 }
 
 function stopSound(note) {
@@ -125,8 +124,7 @@ function stopSound(note) {
     lfoMod.disconnect();
     delete activeNotes[note];
   }
-  const keyElement = document.querySelector(`[data-note="${note}"]`);
-  keyElement.classList.remove('active');
+  
 }
 
 // Event Listeners
@@ -181,11 +179,7 @@ document.addEventListener('keydown', function (event) {
     if (note && !activeNotes[note]) {
       playSound(note);
     }
-    // Add the "active" class to the corresponding key element
-    const keyElement = document.querySelector(`[data-note="${note}"]`);
-    keyElement.classList.add('active');
-    // Prevent the default behavior of the key press
-    event.preventDefault();
+    
   }
 });
 
@@ -197,11 +191,7 @@ document.addEventListener('keyup', function (event) {
   const note = keyToNote[event.key.toUpperCase()];
   if (note) {
     stopSound(note);
-    // Remove the "active" class from the corresponding key element
-    const keyElement = document.querySelector(`[data-note="${note}"]`);
-    keyElement.classList.remove('active');
-    // Prevent the default behavior of the key press
-    event.preventDefault();
+
   }
 });
 
