@@ -18,7 +18,7 @@
   <div class="device-container">
     <div id="synth">
       <div id="title">
-      <h1>Koog Synthesiser</h1>
+        <h1>Koog Synthesiser</h1>
       </div>
       <label class="switch" id='onoff'>
         <input type="checkbox" id="onoff">
@@ -44,21 +44,21 @@
           </datalist>
         </div>
       </div>
-      <div class = "controls">
+      <div class="controls">
         <div class="LFOcontrol">
           <div>
-          <p>LFO Rate</p>
-          <input type="range" min="4" max="8000" value="3000" steps="0.1" class="sliderlfo" id="lforate">
-          <div>
-          <p>LFO Peak</p>
-          <input type="range" min="1" max="2000" value="1000" steps="0.1" class="sliderlfo" id="lfopeak" >
+            <p>LFO Rate</p>
+            <input type="range" min="1" max="6000" value="3000" steps="0.1" class="sliderlfo" id="lforate">
+            <div>
+              <p>LFO Peak</p>
+              <input type="range" min="1" max="2000" value="1000" steps="0.1" class="sliderlfo" id="lfopeak">
+            </div>
           </div>
         </div>
-      </div>
-     <div class="VCAcontrol">
+        <div class="VCAcontrol">
           <div>
-          <span>VCA Gain</span>
-          <input type="range" min="0" max="100" value="50" step="0.1" class="slidervca" id="vcagain">
+            <span>VCA Gain</span>
+            <input type="range" min="0" max="100" value="50" step="0.1" class="slidervca" id="vcagain">
           </div>
         </div>
       </div>
@@ -73,11 +73,11 @@
       </div>
       <div class="wavetype">
         <label for="waveformLfoOscillator">LFO Waveform:</label>
-          <select id="waveformLfoOscillator">
-            <option value="sine">Sine</option>
-            <option value="sawtooth">Sawtooth</option>
-            <option value="triangle">Triangle</option>
-            <option value="square">Square</option>
+        <select id="waveformLfoOscillator">
+          <option value="sine">Sine</option>
+          <option value="sawtooth">Sawtooth</option>
+          <option value="triangle">Triangle</option>
+          <option value="square">Square</option>
         </select>
       </div>
       <div id="keyboard">
@@ -97,10 +97,7 @@
       </div>
     </div>
   </div>
-</div> 
-
-
-  
+  </div>
   <script src="assets/js/script.js"></script>
 </body>
 
