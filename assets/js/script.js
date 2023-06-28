@@ -33,6 +33,7 @@ powerButton.addEventListener('change', function () {
   } else {
     enableAudio();
   }
+  location.reload();
 });
 
 // audio default state
