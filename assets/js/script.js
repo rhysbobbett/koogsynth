@@ -8,6 +8,36 @@ const lfoOscillatorGain = audioContext.createGain();
 // Power Button
 const powerButton = document.getElementById('onoff');
 
+// enable audio
+function enableAudio() {
+  if (audioContext.state === 'suspended') {
+    audioContext.resume().then(function () {
+      console.log('Audio started');
+    });
+  }
+}
+
+// disable audio
+function disableAudio() {
+  if (audioContext.state === 'running') {
+    audioContext.suspend().then(function () {
+      console.log('audio stopped');
+    });
+  }
+}
+
+// Event listener power button (checkbox)
+powerButton.addEventListener('change', function () {
+  if (powerButton.checked) {
+    disableAudio();
+  } else {
+    enableAudio();
+  }
+});
+
+// audio default state
+disableAudio();
+
 // VCA Oscillator and Gain Control
 const vcaGainSlider = document.getElementById('vcagain');
 const vcaWaveformSelect = document.getElementById('waveformVcaOscillator');
@@ -82,6 +112,8 @@ function playSound(note) {
     vcaOscillator.start();
     lfoMod.start();
   }
+  const keyElement = document.querySelector(`[data-note="${note}"]`);
+  keyElement.classList.add('active');
 }
 
 function stopSound(note) {
@@ -93,6 +125,8 @@ function stopSound(note) {
     lfoMod.disconnect();
     delete activeNotes[note];
   }
+  const keyElement = document.querySelector(`[data-note="${note}"]`);
+  keyElement.classList.remove('active');
 }
 
 // Event Listeners
@@ -142,24 +176,130 @@ document.addEventListener('keydown', function (event) {
       octaveSlider.value = currentOctave;
     }
     event.preventDefault();
-  } else {
+  }  else {
     const note = keyToNote[event.key.toUpperCase()];
     if (note && !activeNotes[note]) {
       playSound(note);
     }
+    // Add the "active" class to the corresponding key element
+    const keyElement = document.querySelector(`[data-note="${note}"]`);
+    keyElement.classList.add('active');
+    // Prevent the default behavior of the key press
+    event.preventDefault();
   }
 });
 
+// Event listener for keyup event
 document.addEventListener('keyup', function (event) {
   if (event.key === 'z' || event.key === 'x') {
-    event.preventDefault();
+    // ...
   }
   const note = keyToNote[event.key.toUpperCase()];
   if (note) {
     stopSound(note);
+    // Remove the "active" class from the corresponding key element
+    const keyElement = document.querySelector(`[data-note="${note}"]`);
+    keyElement.classList.remove('active');
+    // Prevent the default behavior of the key press
+    event.preventDefault();
   }
 });
 
 // Connect Nodes
 vcaOscillator.connect(vcaOscillatorGain);
 vcaOscillatorGain.connect(audioContext.destination);
+
+// Function to handle mouse click on a key
+function handleMouseClick(note) {
+  if (!activeNotes[note]) {
+    playSound(note);
+    
+  }
+}
+
+// Function to handle mouse release on a key
+function handleMouseRelease(note) {
+  if (activeNotes[note]) {
+    stopSound(note);
+  }
+}
+
+// Event listeners for mouse clicks and releases on keys
+const whiteKeys = document.querySelectorAll('.white-key');
+const blackKeys = document.querySelectorAll('.black-key');
+
+whiteKeys.forEach((key) => {
+  key.addEventListener('mousedown', function () {
+    const note = this.dataset.note;
+    handleMouseClick(note);
+  });
+
+  key.addEventListener('mouseup', function () {
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+
+  key.addEventListener('mouseleave', function () {
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+});
+
+blackKeys.forEach((key) => {
+  key.addEventListener('mousedown', function () {
+    const note = this.dataset.note;
+    handleMouseClick(note);
+  });
+
+  key.addEventListener('mouseup', function () {
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+
+  key.addEventListener('mouseleave', function () {
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+});
+
+// Event listeners for touch events on keys (for touchscreens)
+whiteKeys.forEach((key) => {
+  key.addEventListener('touchstart', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseClick(note);
+  });
+
+  key.addEventListener('touchend', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+
+  key.addEventListener('touchcancel', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+});
+
+blackKeys.forEach((key) => {
+  key.addEventListener('touchstart', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseClick(note);
+  });
+
+  key.addEventListener('touchend', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+
+  key.addEventListener('touchcancel', function (event) {
+    event.preventDefault();
+    const note = this.dataset.note;
+    handleMouseRelease(note);
+  });
+});
+
