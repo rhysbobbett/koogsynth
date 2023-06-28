@@ -5,6 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/img/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicon-16x16.png">
   <title>Koog Synthesiser</title>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
@@ -19,7 +24,7 @@
         <input type="checkbox" id="onoff">
         <span class="powerButton"></span>
       </label>
-      <p>Click anywhere to begin</p>
+      <p>Click the power button above to enable the Synth Engine</p>
       <p>Use Z and X as a shortcut to move the octave slider</p>
       <div class="octavecontrols">
         <div class="slider">
@@ -43,16 +48,17 @@
         <div class="LFOcontrol">
           <div>
           <p>LFO Rate</p>
-          <input type="range" min="4" max="8000" value="3000" steps="0.1" class="slider" id="lforate">
+          <input type="range" min="4" max="8000" value="3000" steps="0.1" class="sliderlfo" id="lforate">
           <div>
           <p>LFO Peak</p>
-          <input type="range" min="1" max="2000" value="1000" steps="0.1" class="slider" id="lfopeak" >
+          <input type="range" min="1" max="2000" value="1000" steps="0.1" class="sliderlfo" id="lfopeak" >
           </div>
         </div>
-        <div class="VCAcontrol">
+      </div>
+     <div class="VCAcontrol">
           <div>
           <span>VCA Gain</span>
-          <input type="range" min="0" max="100" value="50" step="0.1" class="slider" id="vcagain">
+          <input type="range" min="0" max="100" value="50" step="0.1" class="slidervca" id="vcagain">
           </div>
         </div>
       </div>
@@ -74,13 +80,8 @@
             <option value="square">Square</option>
         </select>
       </div>
-      <div class="delay-controls">
-        <label for="delay-checkbox">Delay:</label>
-        <input type="checkbox" id="delay-checkbox">
-        <input type="range" min="0" max="10" value="0.5" step="0.1" class="slider" id="delay-time-slider">
-      </div>
       <div id="keyboard">
-        <div class="white-key" data-note="F"></div>
+        <div class="white-key" data-note="F1"></div>
         <div class="black-key" data-note="F#"></div>
         <div class="white-key" data-note="G"></div>
         <div class="black-key" data-note="G#"></div>
@@ -96,6 +97,7 @@
       </div>
     </div>
   </div>
+</div> 
 
 
   
