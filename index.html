@@ -12,16 +12,20 @@
 <body>
   <div class="device-container">
     <div id="synth">
+      <div id="title">
       <h1>Koog Synthesiser</h1>
-      <label class="onoff" for="myToggle">
-        <input class="toggle__input" name="" type="checkbox" id="myToggle">
-        <div class="toggle__fill"></div>
+      </div>
+      <label class="switch" id='onoff'>
+        <input type="checkbox" id="onoff">
+        <span class="powerButton"></span>
       </label>
-      <p>Move the octave slider to begin, and then type on your keyboard to start</p>
+      <p>Click anywhere to begin</p>
+      <p>Use Z and X as a shortcut to move the octave slider</p>
       <div class="octavecontrols">
         <div class="slider">
           <span>Octave</span>
-          <input type="range" min="0" max="7" value="3" class="slider" id="octave-slider" list="tickmarks">
+          <p id='octave-display'></p>
+          <input type="range" min="1" max="8" value="3" class="slider" id="octave-slider" list="tickmarks">
           <datalist id="tickmarks">
             <option value="0">128</option>
             <option value="1">64</option>
@@ -31,61 +35,49 @@
             <option value="5">4</option>
             <option value="6">2</option>
             <option value="7">1</option>
+            <option value="8">0</option>
           </datalist>
         </div>
       </div>
-      <div class="dials">
-        <div class="vcfcontrols">VCF Controls
-          <div class="knob" id="vcfcutoff"></div>
-          <p>Cut-off</p>
-          <div class="knob" id="vcfpeak"></div>
-          <p>Peak</p>
-          <div id="knobValue"></div>
+      <div class = "controls">
+        <div class="LFOcontrol">
+          <div>
+          <p>LFO Rate</p>
+          <input type="range" min="4" max="8000" value="3000" steps="0.1" class="slider" id="lforate">
+          <div>
+          <p>LFO Peak</p>
+          <input type="range" min="1" max="2000" value="1000" steps="0.1" class="slider" id="lfopeak" >
+          </div>
         </div>
-        <div class="lfocontrols">LFO Controls
-          <div class="knob" id="lforate"></div>
-          <p>Rate</p>
-          <div class="knob" id="lfoint"></div>
-          <p>Intensity</p>
-          <div id="knobValue"></div>
+        <div class="VCAcontrol">
+          <div>
+          <span>VCA Gain</span>
+          <input type="range" min="0" max="100" value="50" step="0.1" class="slider" id="vcagain">
+          </div>
         </div>
-        <div class="noisecontrols">VCO Noise
-          <div class="knob" id="noise"></div>
-          <p>Noise level</p>
-          <div id="knobValue"></div>
-          <div class="knob" id="VCAGain"></div>
-          <p>VCA Gain</p>
-          <div id="knobValue"></div>
-        </div>
-        
       </div>
       <div class="wavetype">
-        <label for="waveform-select-vco">VCO Waveform:</label>
-        <select id="waveform-select-vco">
+        <label for="waveformVcaOscillator">VCA Waveform:</label>
+        <select id="waveformVcaOscillator">
+          <option value="sine">Sine</option>
           <option value="sawtooth">Sawtooth</option>
           <option value="triangle">Triangle</option>
           <option value="square">Square</option>
         </select>
       </div>
       <div class="wavetype">
-        <label for="waveform-select-lfo">LFO Waveform:</label>
-        <select id="waveform-select-lfo">
-          <option value="sawtooth">Sawtooth</option>
-          <option value="triangle">Triangle</option>
-          <option value="square">Square</option>
+        <label for="waveformLfoOscillator">LFO Waveform:</label>
+          <select id="waveformLfoOscillator">
+            <option value="sine">Sine</option>
+            <option value="sawtooth">Sawtooth</option>
+            <option value="triangle">Triangle</option>
+            <option value="square">Square</option>
         </select>
       </div>
-      <div class="targetselect">
-        <h4>Target frequency</h4>
-        <div class="tri-state-toggle">
-          <input type="checkbox" id="toggleButtonVCO">
-          <label for="toggleButtonVCOVCF">VCO</label>
-          <input type="checkbox" id="toggleButtonVCOVCF" checked>
-          <label for="toggleButtonVCOVCF">VCO + VCF</label>
-          <input type="checkbox" id="toggleButtonVCF" >
-          <label for="toggleButtonVCOVCF">VCF</label>
-
-        </div>
+      <div class="delay-controls">
+        <label for="delay-checkbox">Delay:</label>
+        <input type="checkbox" id="delay-checkbox">
+        <input type="range" min="0" max="10" value="0.5" step="0.1" class="slider" id="delay-time-slider">
       </div>
       <div id="keyboard">
         <div class="white-key" data-note="F"></div>
@@ -106,7 +98,7 @@
   </div>
 
 
-  <script src="https://colinbd.github.io/JSAudioKnobs/knobs.js"></script>
+  
   <script src="assets/js/script.js"></script>
 </body>
 
