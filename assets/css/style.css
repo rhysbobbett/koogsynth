@@ -2,13 +2,10 @@
 
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   height: 100%;
-  width: 90vw;
+  width: 100vw;
   background-color: #262626;
-  font-family: 'Caprasimo', cursive;
+  font-family: 'Caprasimo', cursive, sans-serif;
   color: white;
   
 }
@@ -16,12 +13,35 @@ body {
 .synth {
   border: 2px solid #afafaf;
   height: 100vh;
-  width: 200vw;
-  padding:2px;
+  width: 100vw;
+  padding: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90vw;
+  background-color: #262626;
+  font-family:  'Caprasimo', cursive, sans-serif;
+  color: white;
   
 }
 
-/* Title */
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+header h1 {
+  font-size: 42px;
+  color: #fe4a49; /* Default title font color */
+  transition: color 3s ease;
+}
+
+/* Title - Power On */
+#title.power-on h1 {
+  color: #52f321 ; /* Title font color when power is on */
+}
+
 #title {
   font-size: 20px;
   margin-bottom: 20px;
@@ -42,7 +62,7 @@ body {
   height: 0;
 }
 
-/* The slider */
+/* The power button slider */
 .powerButton {
   position: absolute;
   cursor: pointer;
@@ -53,6 +73,7 @@ body {
   background-color: #fe4a49;
   transition: .4s;
   border-radius: 17px;
+  padding:10px;
 }
 
 .powerButton:before {
@@ -77,6 +98,35 @@ input:focus + .powerButton {
 
 input:checked + .powerButton:before {
   transform: translateX(26px);
+}
+
+/* Help section */
+.help {
+  font-family:'Caprasimo', cursive, sans-serif;
+  background-color: #eee;
+  color: #444;
+  cursor: pointer;
+  padding: 1px;
+  width: 100%;
+  border: none;
+  text-align: center;
+  outline: none;
+  font-size: 15px;
+}
+
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .collapsible:hover {
+  background-color: #ccc;
+  text-align: center;
+}
+
+/* Style the collapsible content. Note: hidden by default */
+.help p {
+  padding: 0 18px;
+  display: none;
+  overflow: hidden;
+  background-color: #f1f1f1;
+  text-align: center;
 }
 
 /* Octave Controls */
@@ -296,3 +346,14 @@ input:checked + .powerButton:before {
   text-align-last:center;
 }
 
+/*Footer*/
+
+footer {
+  height: 60px;
+  width: 100%;
+  background-color: #333;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

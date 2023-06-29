@@ -292,3 +292,16 @@ blackKeys.forEach((key) => {
   });
 });
 
+var button = document.getElementById('toggleButton');
+
+  button.addEventListener('click', function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.display === "block") {
+      content.style.display = "none";
+      button.textContent = 'Click to show tooltips';
+    } else {
+      content.style.display = "block";
+      button.textContent = 'Click to hide tooltips';
+    }
+  });
