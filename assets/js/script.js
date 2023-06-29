@@ -1,9 +1,8 @@
+/*jshint esversion: 6 */
 // Audio Context and Nodes
 const audioContext = new (window.AudioContext || window.webkitAudioContext)();
 const vcaOscillator = audioContext.createOscillator();
 const vcaOscillatorGain = audioContext.createGain();
-const lfoOscillator = audioContext.createOscillator();
-const lfoOscillatorGain = audioContext.createGain();
 
 // Power Button
 const powerButton = document.getElementById('onoff');
