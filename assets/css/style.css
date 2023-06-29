@@ -5,7 +5,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 90vh;
+  height: 100%;
   width: 90vw;
   background-color: #262626;
   font-family: 'Caprasimo', cursive;
@@ -27,7 +27,6 @@ body {
   margin-bottom: 20px;
 }
 
-/* Synth Power Control */
 /* The switch - the box around the slider */
 .switch {
   position: relative;
@@ -84,6 +83,7 @@ input:checked + .powerButton:before {
 .octavecontrols {
   position: relative;
   padding: 5px;
+  color: #262626;
   background-color: #fed766;
   border-bottom: 2px solid #afafaf;
 }
@@ -201,7 +201,10 @@ input:checked + .powerButton:before {
 }
 
 /* VCA controls */
-
+.VCAcontrol {
+  background-color: #fe4a49;
+  padding: 20px;
+}
 
 /* Waveform type VCA */
 #waveformVcaOscillator {
@@ -210,14 +213,15 @@ input:checked + .powerButton:before {
   border-bottom: 2px solid #afafaf;
 }
 
-.wavetype label {
-  margin-right: 10px;
-}
-
 /* Waveform type LFO */
 #waveformLfoOscillator {
   padding: 10px;
   background-color: #2AB7CA;
+  width: 200px;
+  height: 30px;
+  border: 1px solid #fe4a49;
+  border-radius: 4px;
+  padding: 5px;
 }
 
 /* Keyboard area */
@@ -264,22 +268,50 @@ input:checked + .powerButton:before {
   background-image: linear-gradient(45deg, grey, black)
 }
 
-/* Additional Styles */
-
-/* Distinctive bordering between each part */
-
-
 /* Custom colors for LFO controls, VCA, and Octave slider */
 .LFOcontrol {
   background-color: #2AB7CA;
+  color: black;
   padding:20px;
 }
 
-.VCAcontrol {
-  background-color: #fe4a49;
-  padding: 20px;
+/* Waveform Selection area */
+.wavetype {
+  padding: 3px;
 }
 
-.octavecontrols {
-  background-color: #fed766;
+#waveformVcaOscillator {
+  /* Basic styles */
+  width: 200px;
+  height: 30px;
+  border: 1px solid #fe4a49;
+  border-radius: 4px;
+  padding: 5px;
+
+  /* Custom styles */
+  background-color:#fe4a49;
+  color: #333;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  text-align-last:center;
+}
+
+/* Styles for the dropdown arrow */
+.dropdown::after {
+  content: '\25BC'; /* Unicode character for a downward-pointing triangle */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+/* Styles for the dropdown arrow */
+.dropdown::after {
+  content: '\25BC'; /* Unicode character for a downward-pointing triangle */
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  pointer-events: none;
 }
