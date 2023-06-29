@@ -253,6 +253,7 @@ input:checked + .powerButton:before {
 .VCAcontrol {
   background-color: #fe4a49;
   padding: 20px;
+  color: #06171B;
 }
 
 /* Keyboard area */
