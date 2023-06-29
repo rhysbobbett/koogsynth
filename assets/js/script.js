@@ -27,13 +27,16 @@ function disableAudio() {
 
 // Event listener power button (checkbox)
 powerButton.addEventListener('change', function () {
+  var synthTitle = document.getElementById('title'); // Get the #title element
+
   if (powerButton.checked) {
     disableAudio();
+    synthTitle.classList.add('power-on'); // Add the class 'power-on' to #title
   } else {
     enableAudio();
+    synthTitle.classList.remove('power-on'); // Remove the class 'power-on' from #title
   }
 });
-
 // audio default state
 disableAudio();
 
