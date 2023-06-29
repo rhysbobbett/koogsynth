@@ -137,6 +137,61 @@ input:checked + .powerButton:before {
   border-bottom: 2px solid #afafaf;
 }
 
+.slideroctave {
+  appearance: none;
+  width: 100%;
+  background-color: transparent;
+  outline: none;
+}
+
+.slideroctave::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 5px;
+  background-color: #afafaf;
+  border-radius: 5px;
+}
+
+.slideroctave::-webkit-slider-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-image: linear-gradient(  #fed766,#2AB7CA);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slideroctave::-moz-range-track {
+  width: 100%;
+  height: 5px;
+  background-image: linear-gradient( #2AB7CA, #fe4a49);
+  border-radius: 5px;
+}
+
+.slideroctave::-moz-range-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-color: #e6e6ea;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.slideroctave::-ms-track {
+  width: 100%;
+  height: 5px;
+  background-color: #e6e6ea;
+  border-radius: 5px;
+}
+
+.slideroctave::-ms-thumb {
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  background-image: linear-gradient( #2AB7CA, #fe4a49);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
 /* Slider control area */
 .sliderlfo {
   appearance: none;
@@ -156,7 +211,7 @@ input:checked + .powerButton:before {
   appearance: none;
   width: 15px;
   height: 15px;
-  background-color: #fe4a49;
+  background-image: linear-gradient(  #fe4a49,#2AB7CA);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -164,7 +219,7 @@ input:checked + .powerButton:before {
 .sliderlfo::-moz-range-track {
   width: 100%;
   height: 5px;
-  background-image: linear-gradient( #fe4a49, #fe4);
+  background-image: linear-gradient( #2AB7CA, #fe4a49);
   border-radius: 5px;
 }
 
@@ -184,11 +239,11 @@ input:checked + .powerButton:before {
   border-radius: 5px;
 }
 
-.slider::-ms-thumb {
+.sliderlfo::-ms-thumb {
   appearance: none;
   width: 15px;
   height: 15px;
-  background-color: #fe4a49;
+  background-image: linear-gradient( #2AB7CA, #fe4a49);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -212,7 +267,7 @@ input:checked + .powerButton:before {
   appearance: none;
   width: 15px;
   height: 15px;
-  background-color: #2AB7CA;
+  background-image: radial-gradient( #2AB7CA, #fe4a49);
   border-radius: 50%;
   cursor: pointer;
 }
@@ -252,7 +307,11 @@ input:checked + .powerButton:before {
 /* VCA controls */
 .VCAcontrol {
   background-color: #fe4a49;
-  padding: 20px;
+  padding: 10px;
+}
+
+/* VCA Text colour */
+#vcagain {
   color: #06171B;
 }
 
@@ -345,9 +404,16 @@ input:checked + .powerButton:before {
   font-size: 16px;
   text-align-last:center;
 }
+/* Font is darkened blue variation of #2AB7CA */
+#waveformVcaOscillator {
+  color: #06171B;
+}
+/* Font is darkened blue variation of #fe4a49 */
+#waveformLfoOscillator {
+  color: #7F0803;
+}
 
 /*Footer*/
-
 footer {
   height: 60px;
   width: 100%;
@@ -357,13 +423,6 @@ footer {
   justify-content: center;
   align-items: center;
 }
-/* Font is darkened blue variation of #2AB7CA */
-#waveformVcaOscillator {
-  color: #06171B;
-}
-/* Font is darkened blue variation of #fe4a49 */
-#waveformLfoOscillator {
-  color: #7F0803;
-}
+
 
 
