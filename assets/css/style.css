@@ -3,11 +3,10 @@
 
 body {
   height: 100%;
-  width: 100vw;
+  width: 95vw;
   background-color: #262626;
   font-family: 'Caprasimo', cursive, sans-serif;
   color: white;
-  
 }
 
 .synth {
@@ -73,7 +72,7 @@ header h1 {
   background-color: #fe4a49;
   transition: .4s;
   border-radius: 17px;
-  padding:10px;
+  padding: 5px;
 }
 
 .powerButton:before {
@@ -304,7 +303,7 @@ input:checked + .powerButton:before {
 .LFOcontrol {
   background-color: #2AB7CA;
   color: black;
-  padding:20px;
+  padding:10px;
 }
 
 /* Waveform Selection area */
@@ -319,7 +318,7 @@ input:checked + .powerButton:before {
   height: 30px;
   border: 1px solid #2AB7CA;
   border-radius: 4px;
-  padding: 5px;
+  padding: 1px;
 
   /* Custom styles */
   background-color:#fe4a49;
@@ -336,7 +335,7 @@ input:checked + .powerButton:before {
   height: 30px;
   border: 1px solid #fe4a49;
   border-radius: 4px;
-  padding: 5px;
+  padding: 1px;
 
   /* Custom styles */
   background-color: #2AB7CA;
@@ -356,4 +355,21 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#waveformVcaOscillator {
+  color: #2AB7CA;
+}
+
+#waveformLfoOscillator {
+  color: #fe4a49;
+}
+
+
+canvas#visualizer {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }

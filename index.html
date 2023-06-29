@@ -16,6 +16,7 @@
 </head>
 
 <body>
+  <canvas id="visualizer"></canvas>
   <div class="device-container">
     <div id="synth">
       <div id="title">
@@ -58,16 +59,16 @@
       </div>
       <div class="controls">
         <div class="LFOcontrol">
-          <div>
-            <p>LFO Rate</p>
-            <input type="range" min="1" max="3000" value="1500" class="sliderlfo" id="lforate"
-              aria-label="LFO rate slider">
+            <div>
+              <p>LFO Rate</p>
+              <input type="range" min="1" max="3000" value="1500" class="sliderlfo" id="lforate"
+                aria-label="LFO rate slider">
+            </div>
             <div>
               <p>LFO Peak</p>
               <input type="range" min="1" max="2000" value="1000" class="sliderlfo" id="lfopeak"
                 aria-label="LFO Peak slider">
             </div>
-          </div>
         </div>
         <div class="VCAcontrol">
           <div>
