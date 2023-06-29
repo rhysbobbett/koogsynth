@@ -356,13 +356,13 @@ footer {
   justify-content: center;
   align-items: center;
 }
-
+/* Font is darkened blue variation of #2AB7CA */
 #waveformVcaOscillator {
-  color: #2AB7CA;
+  color: #06171B;
 }
-
+/* Font is darkened blue variation of #fe4a49 */
 #waveformLfoOscillator {
-  color: #fe4a49;
+  color: #7F0803;
 }
 
 
