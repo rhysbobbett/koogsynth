@@ -323,7 +323,7 @@ input:checked + .powerButton:before {
   /* Custom styles */
   background-color:#fe4a49;
   color: #333;
-  font-family: sans-serif;
+  font-family: 'Caprasimo', sans-serif;
   font-size: 16px;
   text-align-last:center;
 }
@@ -340,7 +340,7 @@ input:checked + .powerButton:before {
   /* Custom styles */
   background-color: #2AB7CA;
   color: #333;
-  font-family: sans-serif;
+  font-family: 'Caprasimo', sans-serif;
   font-size: 16px;
   text-align-last:center;
 }
