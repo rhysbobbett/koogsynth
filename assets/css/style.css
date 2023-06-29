@@ -206,24 +206,6 @@ input:checked + .powerButton:before {
   padding: 20px;
 }
 
-/* Waveform type VCA */
-#waveformVcaOscillator {
-  padding: 10px;
-  background-color: #fe4a49;
-  border-bottom: 2px solid #afafaf;
-}
-
-/* Waveform type LFO */
-#waveformLfoOscillator {
-  padding: 10px;
-  background-color: #2AB7CA;
-  width: 200px;
-  height: 30px;
-  border: 1px solid #fe4a49;
-  border-radius: 4px;
-  padding: 5px;
-}
-
 /* Keyboard area */
 #synth {
   text-align: center;
@@ -280,7 +262,25 @@ input:checked + .powerButton:before {
   padding: 3px;
 }
 
+/* VCA wave dropdown */
 #waveformVcaOscillator {
+  /* Basic styles */
+  width: 200px;
+  height: 30px;
+  border: 1px solid #2AB7CA;
+  border-radius: 4px;
+  padding: 5px;
+
+  /* Custom styles */
+  background-color:#fe4a49;
+  color: #333;
+  font-family: sans-serif;
+  font-size: 16px;
+  text-align-last:center;
+}
+
+/* LFO wave dropdown */
+#waveformLfoOscillator {
   /* Basic styles */
   width: 200px;
   height: 30px;
@@ -289,29 +289,10 @@ input:checked + .powerButton:before {
   padding: 5px;
 
   /* Custom styles */
-  background-color:#fe4a49;
+  background-color: #2AB7CA;
   color: #333;
-  font-family: Arial, sans-serif;
+  font-family: sans-serif;
   font-size: 16px;
   text-align-last:center;
 }
 
-/* Styles for the dropdown arrow */
-.dropdown::after {
-  content: '\25BC'; /* Unicode character for a downward-pointing triangle */
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
-
-/* Styles for the dropdown arrow */
-.dropdown::after {
-  content: '\25BC'; /* Unicode character for a downward-pointing triangle */
-  position: absolute;
-  top: 50%;
-  right: 10px;
-  transform: translateY(-50%);
-  pointer-events: none;
-}
