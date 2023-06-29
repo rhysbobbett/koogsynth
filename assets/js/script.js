@@ -39,7 +39,7 @@ powerButton.addEventListener('change', function() {
 // audio default state
 disableAudio();
 // VCA Oscillator and Gain Control
-const vcaGainSlider = document.getElementById('vcagain');
+const vcaGainSlider = document.getElementById('vcagainslider');
 const vcaWaveformSelect = document.getElementById('waveformVcaOscillator');
 // LFO Oscillator and Gain Control
 const lfoFrequencySlider = document.getElementById('lforate');
