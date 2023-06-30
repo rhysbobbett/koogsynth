@@ -72,7 +72,7 @@ I've used [Balsamiq](https://balsamiq.com/wireframes) to design my site wirefram
 
 ## Features
 
-⚠️⚠️⚠️⚠️⚠️ START OF NOTES (to be deleted) ⚠️⚠️⚠️⚠️⚠️
+
 The synthesiser features 2 oscillators, adjustable by the VCA Gain, and lfo sliders.
 Notes are played through the synthesiser by playing your computer keyboard, which is arranged similarly to the onscreen CSS keyboard.
 
@@ -189,3 +189,6 @@ You can fork this repository by using the following steps:
 - I would like to thank the Code Institute tutor team for their assistance with troubleshooting and debugging some project issues.
 - I would like to thank the Code Institute Slack community for the moral support; it kept me going during periods of self doubt and imposter syndrome.
 - I would like to thank my partner, friends and family for believing in me, and allowing me to make this transition into software development.
+
+
+Continue to [TESTING.md](/testing/TESTING.md) file.
