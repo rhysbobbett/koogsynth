@@ -1,4 +1,4 @@
-# KoogSynth
+x# KoogSynth
 A Javacript Synthesiser
 ![screenshot](documentation/mockup.png)
 
@@ -57,7 +57,7 @@ I have used google's font Caprisimo. It has a retro, bold aesthetic which is exa
 - As a site administrator, I should be able to easily upgrade the code with new features, so that I can improve functionality for the end users.
 - As a site administrator, I should be able to read the code easily with good note headings,so that I can make necessary amendments in the future.
 - As a site administrator, I should be able to understand each oscillator module, so that I can create new functionality by linking new nodes.
-- As a site administrator, I should be able to edit the CSS swiftly with :root variables, so that I can update the entire code's basic CSS variables quickly.
+
 
 
 ## Wireframes
@@ -191,4 +191,4 @@ You can fork this repository by using the following steps:
 - I would like to thank my partner, friends and family for believing in me, and allowing me to make this transition into software development.
 
 
-Continue to [TESTING.md](/testing/TESTING.md) file.
+Continue to [TESTING.md](testing/TESTING.md) file.
