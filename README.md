@@ -1,9 +1,9 @@
-x# KoogSynth
+# KoogSynth
 A Javacript Synthesiser
 ![screenshot](documentation/mockup.png)
 
 
-This is milestone project 2 of the [Code Institute](https://codeinstitute.net/) Full Stack Software Development course.
+This is milestone project 2 of the [Code Institute](https://codeinstitute.net/) Full Stack Web Development course.
 The goal of this project is to *build an interactive front-end site that should respond to users' actions, such as a data dashboard, a memory game, or use of an external API such as Google Maps*".
 My project will be utilisng the Web Audio API. It is powerful for browser audio processing, some processors maybe capable of running thousands of simultaneous sounds without stuttering.
 
@@ -11,7 +11,7 @@ The synthesiser should be simple, an entry-level synth with few controls, but en
 
 ## UX
 The synthesiser is based on waveform generators and electronic synthesisers popularised in the 1970's.
-The colour aesthetic is of a retro palette, but with modern vibrance. The fonts was chosen specifically for it's retro style.
+The colour aesthetic is of a retro palette, but with modern vibrance. The font was chosen specifically for its retro style.
 The page is to be responsive and appropriate for all devices, both mobile and desktop. 
 The device layout takes inspiration from various popular synthesisers and audio devices. It uses oscillators to create the sound waves and modulate the sound of the audio output.
 
@@ -28,8 +28,8 @@ Colours used:
 
 #### Typography
 I have stuck with one font family, with sans serif as a backup.
-I have used google's font Caprisimo. It has a retro, bold aesthetic which is exactly what I was looking for.
-- [Caprisimo](https://fonts.google.com/specimen/Caprasimo?stylecount=1&preview.text=synthesiser&preview.layout=row&preview.text_type=custom)
+I have used google's font Caprasimo. It has a retro, bold aesthetic which is exactly what I was looking for.
+- [Caprasimo](https://fonts.google.com/specimen/Caprasimo?stylecount=1&preview.text=synthesiser&preview.layout=row&preview.text_type=custom)
 
 ### User Stories
 
@@ -95,7 +95,7 @@ The site is ideal for a first-time synthesiser user as there are few parameters 
 ### Future Features
 
 - MIDI Input/Output
-    - I would like to impliment midi in/out for the device so I can utilise it with DAW audio software.
+    - I would like to implement midi in/out for the device so I can utilise it with DAW audio software.
 - More Effects
     - To have additional effects modules would enhance the experience, it would be possible to add a delay effect by adding an additional node.
 - Visualisers for each oscillator
@@ -191,4 +191,4 @@ You can fork this repository by using the following steps:
 - I would like to thank my partner, friends and family for believing in me, and allowing me to make this transition into software development.
 
 
-Continue to [TESTING.md](testing/TESTING.md) file.
+Continue to [TESTING.md](TESTING.md) file.

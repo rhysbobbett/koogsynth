@@ -46,8 +46,8 @@ Four warnings
 145	The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype.
 152	The body of a for in should be wrapped in an if statement to filter unwanted properties from the prototype."
 
--The 4 warnings I got were related to the following issues:
-The 'bad constructor' is the way in which the audioapi creates a 'new' audio context, and JSHint cannot really comprehend the complexity of this constructor. It must be wrong about the meaning as the audio context of the web audio api starts when I declare it, and not automatically as JShint is expecting it seems.
+- The 4 warnings I received were related to the following issues:
+The 'bad constructor' is the way in which the audio API creates a 'new' audio context, and JSHint cannot by itself, comprehend the complexity of this constructor. It must be wrong about the meaning as the audio context of the web audio API starts when I declare it, and not automatically as JShint is expecting it to it seems, this would require an alternative version of the script.js code to interpret if this is the case.
 The errors at 138, 145 and 152 relate the way a for in statement is called in an array. I can't see any other acceptable way of calling the 
 oscillator frequencies from the array in any other way as the values can change when the octave changes.
 
@@ -135,7 +135,7 @@ Friends who have tried the synthesiser on their devices report that the gradient
 </details>
 
 ### Responsiveness Conclusion
-The app is not particularly suited to large screens, simulating beyond 1080p leaves text tpo small to effectively read it, and the keyboard does not currently scale with screen size due to the piano layout css it currently uses.  Space is wasted currently on devices with a height over 900px. However, this in time could be filled more effective with additional modules, but it would still require optimisation for larger screens (4k monitors, ultrawide etc).
+The app is not particularly suited to large screens, simulating beyond 1080p leaves text too small to effectively read it, and the keyboard does not currently scale with screen size due to the piano layout css styling.  Space is currently wasted on devices with a height over 900px. However, this in time could be filled more effective with additional modules, but it would still require optimisation for larger screens (4k monitors, ultrawide etc).
 
 ## User Story Testing
 ---
@@ -148,7 +148,7 @@ The app is not particularly suited to large screens, simulating beyond 1080p lea
 | As a new site user, I would like to turn the volume up or down, so that I can play quietly. | ![screenshot](documentation/newuserfeaturegain.png) |
 |Putting the gain slider all the way to the left, puts the gain of the device to 0, therefore there would be no audio output. It can however drastically change the tonality so there are sounds in this range that you can't create if the gain slider is at maximum for example ||
 | As a site administrator, I should be able to easily upgrade the code with new features, so that I can improve functionality for the end users. | ![screenshot](documentation/adminfeatureupgrade.png) |
-|The main bulk of the oscillator's code and connection is set within the playNote function. To add additional features to this synthesiser, it would not be too difficult to add effects such as delay contained within the webaudio api. More oscillators could be added in the same way as the code is constructed here and triggered by the same listeners used.||
+|The main bulk of the oscillator's code and connection is set within the playNote function. To add additional features to this synthesiser, it would not be too difficult to add effects such as delay contained within the webaudio API. More oscillators could be added in the same way as the code is constructed here and triggered by the same listeners used.||
 | As a site administrator, I should be able to read the code easily with good note headings,so that I can make necessary amendments in the future. | ![screenshot](documentation/adminfeaturemanagement.png) |
 |The code is noted for each part and the state of function it might be in. The event listeners are marked out in the notes ||
 | As a site administrator, I should be able to understand each oscillator module, so that I can create new functionality by linking new nodes. | As stated above due to notation of the functions and easily functionality of the oscillators, it would be easily possible to add more functionality to the existing setup used, but additional oscillators would not be difficult to add either |
@@ -156,10 +156,10 @@ The app is not particularly suited to large screens, simulating beyond 1080p lea
 ## Bugs
 ---
 >BUG: Very early in development of the synthesiser, an attempt was made to use external [JSAudioknobs](https://github.com/ColinBD/JSAudioKnobs) to control the oscillators but these proved to be difficult to code for a mobile touch interface. 
-- Possible fix: They look very professional so a return to that feature may be an option in the future, if I can work out how to make them for touch devices.
+- Possible fix: They look very professional so a return to that feature may be an option in the future, if I can work out how to make them work on touch devices.
 
 ---
->BUG : Certain features were cut as they imposed too much tecnical development knowledge on the project such as noise control and additional controls for a VCA filter (VCF). These were conflicting with the use of the LFO sliders due to my limited understanding of electrical engineering and how such oscillators fit together as required, and in what order. Only a single tone would play with VCA gain and a biQuadFilter from the webaudio api, no modulation was possible.
+>BUG : Certain features were cut as they imposed too much tecnical development knowledge on the project such as noise control and additional controls for a VCA filter (VCF). These were conflicting with the use of the LFO sliders due to my limited understanding of electrical engineering and how such oscillators fit together as required, and in what order. Only a single tone would play with VCA gain and a biQuadFilter from the webaudio API, no modulation was possible.
 - This was fixed once the features were removed.
 
 ## Unfixed bugs
@@ -169,11 +169,11 @@ The app is not particularly suited to large screens, simulating beyond 1080p lea
 ---
 >BUG: Not so much a bug but a user perception, most users appear to assume the synthesiser will automatically start.
 
-- Fix: Due to requirements, it must start with the audio api disabled, but an automatic startup would not be difficult to implement by removing the power button.
+- Fix: Due to requirements, it must start with the audio API disabled, but an automatic startup would not be difficult to implement by removing the power button.
 ---
 >BUG:Screen sizes would require extensive reworking of the keyboard layout to work effectively.
 
--Possible Fix: create a dynamically expanding keyboard and octave system so larger devices can utilise more keyboard range. MIDI input would make this highly appealing so users can use their full keyboard (often up to 88 keys of range)
+- Possible Fix: create a dynamically expanding keyboard and octave system so larger devices can utilise more keyboard range. MIDI input would make this highly appealing so users can use their full keyboard (often up to 88 keys of range)
 
 
 There are no remaining bugs that I am aware of.
